@@ -95,7 +95,7 @@ dev.off()
 
 ![Missed values](instructions_fig/Plot_3.png)
 
-### 2. Filling missing values (and verify)
+### 2. Filling missing values (and verify) using average daily activity pattern
 dat0 <- mutate(data, CorrectedSteps = ifelse(is.na(steps),
         Sum2[match(interval,Sum2$Group.1),2], steps) )
 
@@ -143,3 +143,6 @@ qplot(x=Group.1, y=x, data=Sum4, col=Group.2, facets=Group.2~., geom="line", xla
 dev.off()
 
 ![Differences in activity patterns between weekdays and weekends](instructions_fig/Plot_5.png)
+
+## Creating reports
+knit2html("PA1_template.Rmd", force_v1 = TRUE)
